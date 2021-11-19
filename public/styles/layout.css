@@ -31,6 +31,9 @@ body {
     background-color: papayawhip;
 }
 
+
+/* header, form and tweet contaner */
+
 .header-tweet-container {
     display: flex;
     justify-content: space-around;
@@ -38,9 +41,7 @@ body {
 }
 
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* form and tweet container*/
 
 .form-tweet-container {
     display: flex;

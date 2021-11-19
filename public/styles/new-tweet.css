@@ -1,3 +1,5 @@
+/* class for creating new tweet */
+
 .new-tweet {
     width: 100%;
     align-items: center;
@@ -6,6 +8,9 @@
     flex-direction: column;
     background-color: papayawhip;
 }
+
+
+/* class for creating new tweet in text area */
 
 #textarea {
     display: flex;
@@ -25,12 +30,18 @@
     float: right;
 }
 
+
+/* submit(tweet) button  */
+
 #submit {
     float: left;
     background-color: #4056A1;
     color: #FFFFFF;
     font-family: Impact, Haettenschweiler, 'Arial Bold', sans-serif;
 }
+
+
+/* form */
 
 .new-tweet form {
     width: 100%;
@@ -42,6 +53,9 @@
 form .warning {
     color: red;
 }
+
+
+/* error class if no input or input textlength>140 */
 
 #error {
     color: #D8000C;

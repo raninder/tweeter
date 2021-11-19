@@ -1,13 +1,15 @@
 //js code for submitting and loading tweets from a given url
 
 const createTweetElement = function(tweetData) {
-        //when tweet was created (10 days ago)
-        const time = timeago.format(tweetData.created_at);
-        //escaping text input for any script tag in tweet
-        const safeHTML = `${escape(tweetData.content.text)}`;
 
-        //render tweets data
-        const $tweet = $(`<article class="art-tweet">
+    //time when tweet was created (e.g.10 days ago)
+    const time = timeago.format(tweetData.created_at);
+
+    //escaping text input for any script tag in tweet
+    const safeHTML = `${escape(tweetData.content.text)}`;
+
+    //render tweets data
+    const $tweet = $(`<article class="art-tweet">
 
                 <header>
                     <i class="far fa-user"></i>
@@ -27,11 +29,14 @@ const createTweetElement = function(tweetData) {
                 </footer>
             </article>`);
 
-        return $tweet;
-    }
-    //creating a new tweet and adding to twwets container
+    return $tweet;
+}
+
+//function to create a new tweet and add it to tweets container
+
 const renderTweets = function(tweets) {
-    // remove tweets from tweets container before adding a new tweet
+
+    // making tweets container empty before adding a new tweet so that when we load tweets, there is single copy of tweets
     $('.tweetContainer').empty();
 
     for (user of tweets) {
@@ -42,24 +47,28 @@ const renderTweets = function(tweets) {
 }
 
 //load tweets from specified url
-const loadTweets = function() {
-        const url = "/tweets";
-        $.ajax({
-                url: url,
-                method: 'GET',
 
-            })
-            .then((results) => {
-                renderTweets(results);
-            })
-    }
-    //escaping any malicious content from tweet input
-    //like <script>alert("hi");</script>
+const loadTweets = function() {
+    const url = "/tweets";
+    $.ajax({
+            url: url,
+            method: 'GET',
+
+        })
+        .then((results) => {
+            renderTweets(results);
+        })
+}
+
+//function for escaping any malicious content from tweet input like <script>alert("hi");</script>
+
 const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
 };
+
+//function to execute after DOM is ready
 
 $(document).ready(function() {
     loadTweets();
@@ -70,8 +79,7 @@ $(document).ready(function() {
         // prevent from submitting a form
         event.preventDefault();
 
-        //create a URL encoded text string for transmitting 
-        // like hello%20user
+        //create a URL encoded text string for transmitting like hello%20user
         const str = $(this).serialize();
 
         //length of input text in tweet text area
@@ -80,7 +88,7 @@ $(document).ready(function() {
         //error message initially hidden
         $("#error").hide();
 
-        //show error messgae if input text length>140
+        //show error message if input text length>140
         if (currentLength > 140) {
             $("#error").show().html(" Characters limit Exceeded");
         }

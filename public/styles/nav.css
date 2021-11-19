@@ -1,3 +1,5 @@
+/* nav section fixed */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -11,10 +13,16 @@ nav {
     top: 0;
 }
 
-.tweeter {
+
+/* tweeter logo- left side of nav */
+
+.logo {
     font-family: bungee;
 }
 
-.new {
+
+/* right side of nav section */
+
+.nav-right {
     text-align: center;
 }
