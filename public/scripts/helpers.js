@@ -1,3 +1,4 @@
+//function to escape any malicious input 
 const escape = function(str) {
 	let div = document.createElement("div");
 	div.appendChild(document.createTextNode(str));
