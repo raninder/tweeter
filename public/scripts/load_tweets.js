@@ -1,3 +1,5 @@
+const {escape} = require('./helpers');
+
 //load tweets from specified url
 
 const loadTweets = function() {
