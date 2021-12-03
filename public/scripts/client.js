@@ -19,7 +19,7 @@ $(document).ready(function() {
         
         //ajax request for submitting and loading tweets
         const url = "/tweets";
-        if (currentLength>0 && currentLength < 40) {
+        if (currentLength>0 && currentLength <= 140) {
         $.ajax({
                 url: url,
                 method: 'POST',
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
                 //clear text area once tweet submitted
                 $('#textarea').val('');
-                $('#counter').val(40);
+                $('#counter').val(140);
             })
         }
         else if(currentLength <= 0) {
