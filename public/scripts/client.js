@@ -1,5 +1,8 @@
 $(document).ready(function() {
     loadTweets();
+    $('.new-tweet-link').on('click', function() {
+        $("#tweetform").slideToggle();
+      });
 
     //eventlistener for submit(tweet) button
     $("#tweetform").submit(function(event) {
@@ -16,7 +19,6 @@ $(document).ready(function() {
         //error message initially hidden
         $("#error").hide();
 
-        
         //ajax request for submitting and loading tweets
         const url = "/tweets";
         if (currentLength>0 && currentLength <= 140) {
@@ -36,9 +38,11 @@ $(document).ready(function() {
         }
         else if(currentLength <= 0) {
             $("#error").show().html("No Input");
+            $("#textarea").hide();
         }
         else {
             $("#error").show().html(" Characters limit Exceeded");
+            $("#textarea").hide();
         }
 
         });
