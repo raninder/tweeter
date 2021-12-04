@@ -5,4 +5,3 @@ const escape = function(str) {
 	return div.innerHTML;
 };
 
-module.exports = {escape};

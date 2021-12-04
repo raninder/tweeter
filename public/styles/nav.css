@@ -19,10 +19,25 @@ nav {
 .logo {
     font-family: bungee;
 }
+.new-tweet-link {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .new-tweet-link p {
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: #FFF;
+  }
+  
+  /* add double arrow in nav*/
+  #double-arrow{
+    color: crimson;
+    justify-content: center;
+  }
+  
+  #double-arrow:hover {
+    color: white;
+  }
 
-
-/* right side of nav section */
-
-.nav-right {
-    text-align: center;
-}
