@@ -1,6 +1,6 @@
 // eventlistener for text input in text area
 
-$(document).ready(function() {
+$(document).ready(function () {
     $('#textarea').keyup(updateCount);
 
     // update counter for character input

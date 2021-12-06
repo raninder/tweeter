@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
     loadTweets();
-    $('.new-tweet-link').on('click', function() {
+    $('.new-tweet-link').on('click', function () {
         $("#tweetform").slideToggle();
-      });
+    });
 
     //eventlistener for submit(tweet) button
-    $("#tweetform").submit(function(event) {
+    $("#tweetform").submit(function (event) {
 
         // prevent from submitting a form
         event.preventDefault();
@@ -21,22 +21,22 @@ $(document).ready(function() {
 
         //ajax request for submitting and loading tweets
         const url = "/tweets";
-        if (currentLength>0 && currentLength <= 140) {
-        $.ajax({
+        if (currentLength > 0 && currentLength <= 140) {
+            $.ajax({
                 url: url,
                 method: 'POST',
                 data: str
 
             })
-            .then((results) => {
-                loadTweets();
+                .then((results) => {
+                    loadTweets();
 
-                //clear text area once tweet submitted
-                $('#textarea').val('');
-                $('#counter').val(140);
-            })
+                    //clear text area once tweet submitted
+                    $('#textarea').val('');
+                    $('#counter').val(140);
+                })
         }
-        else if(currentLength <= 0) {
+        else if (currentLength <= 0) {
             $("#error").show().html("No Input");
             $("#textarea").hide();
         }
@@ -45,8 +45,8 @@ $(document).ready(function() {
             $("#textarea").hide();
         }
 
-        });
     });
+});
 
 
 

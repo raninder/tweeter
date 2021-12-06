@@ -1,33 +1,33 @@
 
 //load tweets from specified url
 
-const loadTweets = function() {
+const loadTweets = function () {
 	const url = "/tweets";
 	$.ajax({
-					url: url,
-					method: 'GET',
+		url: url,
+		method: 'GET',
 
-			})
-			.then((results) => {
-					renderTweets(results);
-			})
+	})
+		.then((results) => {
+			renderTweets(results);
+		})
 }
 
 //function to create a new tweet and add it to tweets container
 
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
 
 	// making tweets container empty before adding a new tweet so that when we load tweets, there is single copy of tweets
 	$('.tweetContainer').empty();
 
 	for (user of tweets) {
-			let $tweetData = createTweetElement(user);
-			$('.tweetContainer').prepend($tweetData);
+		let $tweetData = createTweetElement(user);
+		$('.tweetContainer').prepend($tweetData);
 	}
 
 }
 
-const createTweetElement = function(tweetData) {
+const createTweetElement = function (tweetData) {
 
 	//time when tweet was created (e.g.10 days ago)
 	const time = timeago.format(tweetData.created_at);
@@ -59,4 +59,4 @@ const createTweetElement = function(tweetData) {
 	return $tweet;
 }
 
-module.exports= {loadTweets};
+module.exports = { loadTweets };
